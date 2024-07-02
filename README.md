@@ -8,21 +8,36 @@ Jarvis ToDo Assistant is a Python application that helps you manage your tasks u
 - **Task Management:** Manage your tasks with commands like marking tasks as completed or checking their status.
 - **Offline Support:** Uses both online (Google Speech API) and offline (Sphinx) speech recognition.
 
-## Setup
+### Speech Recognition and Text-to-Speech Setup
 
-To run the Jarvis ToDo Assistant, follow these steps:
+- Configured speech recognition using `speech_recognition` library.
+- Initialized text-to-speech functionality using `pyttsx3`.
+- Customized speech rate and volume for a personalized experience.
 
-1. **Clone the Repository:**
+### Task Management
 
+- Maintains a list (`tasks`) of tasks with their completion status.
+- Each task is represented as a dictionary with keys for task name and completion status (`completed`).
 
-2. **Install Dependencies:**
-Make sure you have Python 3.x installed. Install required Python packages using pip:
+### Functions
 
+- **speak(text):** Utilizes text-to-speech to read out provided text aloud.
+- **recognize_speech():** Listens via microphone, recognizes speech using Google Speech API or Sphinx, and converts it to text.
+- **recognize_sphinx():** Provides fallback offline speech recognition using Sphinx.
+- **show_to_do_list():** Reads the to-do list aloud and allows interaction to mark tasks as completed or not.
+- **inform_task_status():** Announces the count of completed and incomplete tasks.
 
-3. **Run the Application:**
-pip install -r requirements.txt
+### Main Program (`__main__`)
 
-Make sure your microphone is connected and working properly.
+- Greets users with "Hello, I am Jarvis. How can I assist you?" at the start.
+- Recognizes voice commands:
+  - "hello jarvis": Responds with a greeting.
+  - "how are you": Provides its current state.
+  - "what can you do": Describes its functionalities.
+  - "show my to do list": Displays and interacts with the to-do list.
+  - "inform me": Reports the count of completed and incomplete tasks.
+  - "exit" or "goodbye": Terminates the program.
+  - Handles unrecognized commands by prompting the user to repeat.
 
 ## Usage
 
